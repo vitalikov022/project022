@@ -1,0 +1,231 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<P class=MsoTitle style="MARGIN: 0cm 0cm 4pt" align=center><B><FONT 
+size=5>Введение в отладку и тестирование STL-программ<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Почему важна 
+отладка<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Отладка – ключевая 
+стадия разработки программ для ПЛК. Даже небольшая ошибка в логике может 
+привести к нештатной работе оборудования. Отладка 
+позволяет:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Найти ошибки на 
+ранних этапах.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Проверить 
+корректность алгоритмов.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Убедиться в 
+надежности системы при реальном или смоделированном 
+использовании.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Особенности отладки 
+STL-кода<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Язык STL – 
+низкоуровневый, командно-ориентированный язык, где каждая строка кода 
+выполняется последовательно. Ошибки могут быть неочевидными из-за отсутствия 
+явных конструкций условий и циклов, а использование логического стека делает 
+отладку более трудоемкой. Для эффективного тестирования 
+используются:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Симуляторы, такие 
+как PLCSIM.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Таблицы наблюдения 
+(Watch Table) для отслеживания значений входов/выходов.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Мониторинг состояния 
+внутренних регистров и битовых переменных.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Инструменты отладки в 
+Step&nbsp;7<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Симулятор 
+PLCSIM<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>PLCSIM позволяет 
+моделировать работу ПЛК без физического оборудования:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Запуск программы 
+в режиме симуляции:</B> даёт возможность анализировать переходы и изменение 
+значений в реальном времени.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Тестирование на 
+виртуальном контроллере:</B> выявление логических ошибок без риска для 
+оборудования.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Таблицы 
+наблюдения (Watch Tables)<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Мониторинг 
+переменных:</B> отслеживание значений входов, выходов, внутренних регистров и 
+аккумулятора.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Логирование 
+изменений:</B> запись последовательности изменений для последующего 
+анализа.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Режим пошагового 
+выполнения<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Пошаговый 
+(step-by-step) режим:</B> позволяет выполнять программу по одной строке, 
+анализируя изменения состояния после каждой команды.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Breakpoints 
+(точки останова):</B> установка точек остановки для проверки конкретных участков 
+кода.<O:P></O:P></FONT></P><SPAN style="mso-no-proof: yes"><V:SHAPETYPE 
+id=_x0000_t75 coordsize="21600,21600" o:spt="75" o:preferrelative="t" 
+path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f"><V:STROKE 
+joinstyle="miter"></V:STROKE><V:FORMULAS><V:F 
+eqn="if lineDrawn pixelLineWidth 0"></V:F><V:F eqn="sum @0 1 0"></V:F><V:F 
+eqn="sum 0 0 @1"></V:F><V:F eqn="prod @2 1 2"></V:F><V:F 
+eqn="prod @3 21600 pixelWidth"></V:F><V:F 
+eqn="prod @3 21600 pixelHeight"></V:F><V:F eqn="sum @0 0 1"></V:F><V:F 
+eqn="prod @6 1 2"></V:F><V:F eqn="prod @7 21600 pixelWidth"></V:F><V:F 
+eqn="sum @8 21600 0"></V:F><V:F eqn="prod @7 21600 pixelHeight"></V:F><V:F 
+eqn="sum @10 21600 0"></V:F></V:FORMULAS><V:PATH o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></V:PATH><O:LOCK v:ext="edit" 
+aspectratio="t"></O:LOCK></V:SHAPETYPE></SPAN>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt" 
+align=center><O:P><IMG class=image style="HEIGHT: 312px; WIDTH: 534px" 
+alt=8-1.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/8-1.png" 
+width=622 height=312></O:P></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt" 
+align=center><FONT size=5>Симулятор PLCSIM<B><O:P></O:P></B></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Использование встроенных средств 
+диагностики<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Системные 
+сообщения и индикаторы:</B> отображают ошибки и предупреждения на 
+экране.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Средства 
+профилирования:</B> помогают анализировать время выполнения отдельных участков 
+кода.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Методики отладки 
+STL-программ<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Комментарии и 
+структурирование кода<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Параллельное 
+документирование:</B> Каждая строка кода должна сопровождаться подробным 
+комментарием, объясняющим логику (например, «A I0.0 – загрузка значения входа», 
+«= Q0.0 – запись результата в выход»).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Использование 
+меток:</B> для переходов (JU, JC, JCN) удобно применять осмысленные метки, 
+которые упростят навигацию по коду.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Разбиение программы на 
+модули<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Модульное 
+тестирование:</B> Тестируйте отдельные модули (FB, FC) перед интеграцией в 
+основной блок OB.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Локальное 
+тестирование:</B> если возможно, создавайте тестовые проекты для проверки 
+небольших фрагментов логики.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Применение 
+симуляторов<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Запуск программы 
+в PLCSIM:</B> необходимо загружать и запускать программу в симуляционном режиме, 
+чтобы проверить реакции на изменение входных сигналов.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Эмуляция внешних 
+воздействий:</B> Изменяйте значения входов вручную или с помощью скриптов 
+симулятора для имитации различных сценариев работы.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Логгирование и 
+трассировка<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Запись 
+изменений:</B> В процессе отладки записывайте последовательность изменений 
+значений переменных и регистров.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Анализ 
+ошибок:</B> Используйте системные логи для выявления ошибок, таких как переход в 
+неправильное состояние или некорректное выполнение арифметических 
+операций.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><SPAN lang=EN-US style="mso-ansi-language: EN-US"><FONT 
+size=5>Частые ошибки и решения<O:P></O:P></FONT></SPAN></B></P>
+<TABLE class=MsoTableGrid 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt" 
+cellSpacing=0 cellPadding=0 border=1>
+  <TBODY>
+  <TR style="mso-yfti-irow: 0; mso-yfti-firstrow: yes">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Ошибка<O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Причина<O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Решение<O:P></O:P></FONT></P></TD></TR>
+  <TR style="mso-yfti-irow: 1">
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Бесконечный цикл<O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Неверное управление счетчиком<O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Проверить <SPAN lang=EN-US 
+      style="mso-ansi-language: EN-US">LOOP</SPAN>/<SPAN lang=EN-US 
+      style="mso-ansi-language: EN-US">JU</SPAN><SPAN lang=EN-US> </SPAN>и 
+      условия выхода<O:P></O:P></FONT></P></TD></TR>
+  <TR style="mso-yfti-irow: 2">
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Некорректные значения<O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Перезапись аккумулятора<O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Сохранять данные в переменные<O:P></O:P></FONT></P></TD></TR>
+  <TR style="mso-yfti-irow: 3">
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Сбои при делении<SPAN lang=EN-US 
+      style="mso-ansi-language: EN-US">/</SPAN>умножении<O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Деление на ноль или переполнение<O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Добавить проверки <O:P></O:P></FONT></P></TD></TR>
+  <TR style="mso-yfti-irow: 4; mso-yfti-lastrow: yes">
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Блокировка <SPAN lang=EN-US 
+      style="mso-ansi-language: EN-US">PLC</SPAN><O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Долгое выполнение <SPAN lang=EN-US 
+      style="mso-ansi-language: EN-US">OB1</SPAN><O:P></O:P></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: #f0f0f0; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 155.75pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0cm; PADDING-TOP: 0cm; PADDING-LEFT: 5.4pt; BORDER-LEFT: #f0f0f0; PADDING-RIGHT: 5.4pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" 
+    vAlign=top width=208>
+      <P class=MsoNormal style="MARGIN: 0cm; LINE-HEIGHT: normal"><FONT 
+      size=5>Оптимизировать код или использовать фоновые <SPAN lang=EN-US 
+      style="mso-ansi-language: EN-US">OB</SPAN></FONT><O:P></O:P></P></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P><FONT style='face: ""'>
+<P class=MsoTitle style="MARGIN: 0cm 0cm 4pt" align=center><STRONG><FONT 
+size=6><A 
+href="C:\Users\vital\Desktop\проект\Siemens\public_html\page14.html">Лекции</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<A href="C:\Users\vital\Desktop\проект\Siemens\public_html\index.html">На 
+главную</A></FONT></STRONG></P></FONT></BODY></HTML>

@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="Очередной сайт, созданный при помощи TurboSite" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Лекция 3: аккумуляторы, регистры и переменные - Электронный учебник</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="index.html">Электронный учебник</a></h1>
+			<p>Вводный курс по языку STL siemens для ПЛК</p>
+		</div>
+	</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				<h2 class="title">Лекция 3: аккумуляторы, регистры и переменные</h2>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+					
+<P class=MsoTitle style="MARGIN: 0cm 0cm 4pt"><B><FONT size=5>Теоретическая 
+основа: Память и переменные в ПЛК<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В программировании 
+ПЛК, помимо входов и выходов, важную роль играют <B>внутренние переменные</B> — 
+они хранят промежуточные результаты вычислений, служат для реализации логики 
+управления и взаимодействия между блоками программы.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Аккумулятор (Accumulator)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Аккумулятор</B> — 
+это область памяти, используемая для хранения промежуточного результата 
+выполнения операций.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Команда L (Load) 
+загружает значение в аккумулятор.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Команда T (Transfer) 
+передаёт значение из аккумулятора в определённую область 
+памяти.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Эти команды 
+позволяют выполнять арифметические и логические операции посредством накопления 
+результата пошагово.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Регистры и переменные<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В ПЛК используются 
+различные типы переменных, которые делятся на:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Битовые 
+переменные (M0.0, M0.1, …):</B> используются для логических флагов, хранения 
+единичных битов.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Байтовые 
+переменные (MBx):</B> представляют собой 8-битную память.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Словесные 
+переменные (MWx):</B> 16-битная область памяти для целых 
+чисел.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Двойные слова 
+(MDx):</B> 32-битная область памяти, применяемая для более точных вычислений или 
+представления расширенных диапазонов чисел.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Каждый тип 
+переменной выбирается в зависимости от требований к разрядности и объёму данных, 
+с которыми необходимо работать.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Особенности работы с 
+памятью<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>При программировании 
+на STL важно:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Четко понимать, 
+когда происходит загрузка значения в аккумулятор, а когда – передача результата 
+в регистр.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Оптимально 
+распределять данные между регистрами, чтобы избежать ошибок (например, 
+неправильное использование разрядности переменной).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Внимательно следить 
+за порядком операций, так как STL является стековым языком: результат предыдущей 
+операции используется в последующих командах.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-no-proof: yes"><v:shapetype id=_x0000_t75 coordsize="21600,21600" 
+o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" 
+stroked="f"><v:stroke joinstyle="miter"></v:stroke><v:formulas><v:f 
+eqn="if lineDrawn pixelLineWidth 0"></v:f><v:f eqn="sum @0 1 0"></v:f><v:f 
+eqn="sum 0 0 @1"></v:f><v:f eqn="prod @2 1 2"></v:f><v:f 
+eqn="prod @3 21600 pixelWidth"></v:f><v:f 
+eqn="prod @3 21600 pixelHeight"></v:f><v:f eqn="sum @0 0 1"></v:f><v:f 
+eqn="prod @6 1 2"></v:f><v:f eqn="prod @7 21600 pixelWidth"></v:f><v:f 
+eqn="sum @8 21600 0"></v:f><v:f eqn="prod @7 21600 pixelHeight"></v:f><v:f 
+eqn="sum @10 21600 0"></v:f></v:formulas><v:path o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></v:path><o:lock v:ext="edit" 
+aspectratio="t"></o:lock></v:shapetype><v:shape id=_x0000_i1027 
+style="HEIGHT: 51pt; WIDTH: 468pt; VISIBILITY: visible; mso-wrap-style: square" 
+type="#_x0000_t75"><v:imagedata 
+src="file:///C:/Users/vital/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png" 
+o:title=""><IMG class=image style="HEIGHT: 68px; WIDTH: 556px" alt=3-1.png 
+src="user-images/3-1.png" 
+width=623 height=68></v:imagedata></v:shape></SPAN><o:p></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Загрузка 
+переменной<o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Обычно можно 
+загрузить число (например, L 5), что полезно для арифметических 
+операций.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Команда передачи: T<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Команда T (Transfer) 
+используется для передачи содержимого аккумулятора в регистр или 
+переменную.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-no-proof: yes"></SPAN><o:p><IMG class=image 
+style="HEIGHT: 85px; WIDTH: 575px" alt=3-2.png 
+src="user-images/3-2.png" 
+width=623 height=85></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Передача в 
+память<o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Эта команда особенно 
+полезна после выполнения арифметических или логических 
+операций.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Арифметические и логические операции с 
+переменными<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Пример 
+арифметической операции<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Рассмотрим сложение 
+двух чисел, находящихся в памяти, и сохранение результата в другой области 
+памяти.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-no-proof: yes"></SPAN><o:p><IMG class=image 
+style="HEIGHT: 95px; WIDTH: 568px" alt=3-3.png 
+src="user-images/3-3.png" 
+width=623 height=95></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Пояснения к 
+коду:</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>При выполнении L 
+MW10 значение из MW10 попадает в аккумулятор.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Команда L MW12 не 
+перезаписывает аккумулятор, а подготавливает второе 
+слагаемое.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Операция +I 
+указывает на сложение значение, находящегося в аккумуляторе, с загруженным 
+значением.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Результат 
+сохраняется в переменной MW14 командой T.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Логические операции с 
+аккумулятором<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Логика работы с 
+аккумулятором позволяет проводить не только арифметические операции, но и 
+логические вычисления. Например, если нужно сравнить состояния двух флагов, 
+можно использовать аналогичные концепции загрузки и передачи, комбинируя команды 
+с логическими операциями (A – логическое И, O – логическое ИЛИ и 
+т.д.).</FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5></FONT>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><o:p><FONT size=5>Следующая лекция: <SPAN 
+style='FONT-SIZE: 14pt; FONT-FAMILY: "Times New Roman",serif; LINE-HEIGHT: 107%; mso-ansi-language: RU; mso-bidi-font-size: 11.0pt; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: EN-US; mso-bidi-language: AR-SA'><A 
+href="page4.html">Таймеры и 
+работа с временем в STL (Step 
+7)</A></SPAN></FONT></o:p></SPAN><o:p></o:p></P>
+
+				</div>
+			</div>
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<ul>
+						<li><a style="" href="index.html">Главная</a></li>
+
+					</ul>
+				</li>
+				<li>
+					<h2>Содержание:</h2>
+					<ul>
+						<li><a style="" href="page1.html">Лекция 1: введение в ПЛК и язык STL</a></li>
+<li><a style="" href="page2.html">Лекция 2: базовые логические операции в STL</a></li>
+<li class="active"><a style="" href="page3.html">Лекция 3: аккумуляторы, регистры и переменные</a></li>
+<li><a style="" href="page4.html">Лекция 4: таймеры и работа с временем в STL (Step 7)</a></li>
+<li><a style="" href="page5.html">Лекция 5 : cчетчики</a></li>
+<li><a style="" href="page6.html">Лекция 6: условия, переходы, циклы</a></li>
+<li><a style="" href="page7.html">Лекция 7: организация программы и структура блоков</a></li>
+<li><a style="" href="page8.html">Лекция 8: отладка и тестирование STL-программ</a></li>
+<li><a style="" href="page9.html">Лабораторная работа 1: Основы STL. Управление входами и выходами</a></li>
+<li><a style="" href="page10.html">Лабораторная работа 2: Счетчики и таймеры в OB1</a></li>
+<li><a style="" href="page11.html">Лабораторная работа 3: Условия и циклы</a></li>
+<li><a style="" href="page12.html">Лабораторная работа 4: Обработка аварийных сигналов и приоритеты прерываний</a></li>
+<li><a style="" href="page13.html">Лабораторная работа 5: Отладка и диагностика</a></li>
+<li><a style="" href="page17.html">Тесты</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Автор: Вовенко Виталий Сергеевич | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

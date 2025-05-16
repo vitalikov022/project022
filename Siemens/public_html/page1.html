@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="Очередной сайт, созданный при помощи TurboSite" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Лекция 1: введение в ПЛК и язык STL - Электронный учебник</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="index.html">Электронный учебник</a></h1>
+			<p>Вводный курс по языку STL siemens для ПЛК</p>
+		</div>
+	</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				<h2 class="title">Лекция 1: введение в ПЛК и язык STL</h2>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+					<P class=MsoTitle style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 4pt" 
+align=center><SPAN style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Что такое 
+ПЛК?<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>ПЛК (Programmable Logic 
+Controller)</B> — это электронное устройство, предназначенное для автоматизации 
+производственных процессов. Оно считывает входные сигналы с датчиков, кнопок и 
+переключателей, обрабатывает их согласно заданной логике и управляет 
+исполнительными устройствами: реле, моторами, лампами и 
+т.п.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><SPAN style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Как 
+устроен ПЛК<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Основные компоненты 
+ПЛК:</B><O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>CPU</B> — центральный 
+процессор, который выполняет программу.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Входные модули (Input 
+Modules)</B> — подключение кнопок, датчиков.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Выходные модули (Output 
+Modules)</B> — управление лампами, реле.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Память (RAM/EEPROM)</B> — 
+хранение программы и переменных.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-bookmark: _Hlk198241045"><B>Интерфейсы</B></SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><SPAN style="mso-ansi-language: EN-US"> 
+</SPAN>связи</B></SPAN><SPAN style="mso-bookmark: _Hlk198241045"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US"> — Profibus, Ethernet, MPI 
+</SPAN>и</SPAN><SPAN style="mso-bookmark: _Hlk198241045"><SPAN 
+style="mso-ansi-language: EN-US"> </SPAN>др</SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">.<O:P></O:P></SPAN></SPAN></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><SPAN style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Где 
+применяются ПЛК?<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Примеры реального 
+применения:<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Станки с ЧПУ</B>: управление 
+циклами, контролем скорости, положением.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Конвейеры</B>: 
+запуск/остановка, детекция объектов, маршрутизация.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Водоснабжение</B>: контроль 
+уровня, давления, клапанов.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Здания</B>: освещение, 
+вентиляция, управление лифтами.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>Робототехника</B>: 
+последовательности движений, безопасность.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><SPAN style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Среда 
+разработки Step 7<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5><B>STEP 7</B> — это официальная 
+среда программирования ПЛК от Siemens, поддерживающая 
+S7-300/400/1200/1500.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Что можно делать в Step 
+7:<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Конфигурировать оборудование 
+(CPU, модули)<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Работа с&nbsp;аналоговыми и 
+дискретными сигналами<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Писать программы на языках LAD, 
+FBD и STL<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Проверять работу через 
+симулятор (PLCSIM)<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Загрузить/выгрузить 
+программу<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Работа с&nbsp;HMI (панелями 
+оператора)&nbsp;и&nbsp;SCADA-системами.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Отлаживать и наблюдать значения 
+переменных в реальном времени<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><SPAN style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Плюсы и 
+минусы STEP 7<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT 
+size=5><B>Преимущества</B><O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Широкая поддержка языков 
+программирования.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Интеграция с оборудованием 
+Siemens.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Мощные инструменты 
+отладки.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT 
+size=5><B>Недостатки</B><O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Высокий порог входа (особенно 
+для STL/SCL).<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Дорогие 
+лицензии.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Требовательна к ресурсам 
+ПК<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><SPAN style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Язык STL: 
+введение<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><FONT 
+size=5><SPAN style="mso-bookmark: _Hlk198241045"><B><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>STL 
+(Structured Text Language)</SPAN></B></SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>&nbsp;— 
+это низкоуровневый язык программирования, разработанный компанией Siemens для 
+программирования программируемых логических контроллеров (ПЛК) серий S7-300, 
+S7-400, S7-1200 и S7-1500.<O:P></O:P></SPAN></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Используется 
+для:<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Низкоуровневой настройки 
+логики<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Оптимизации 
+производительности<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Чтения и записи данных из 
+памяти<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Точного контроля порядка 
+исполнения<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal" 
+align=center><SPAN style="mso-bookmark: _Hlk198241045"><B><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'><FONT 
+size=5>Особенности языка:<O:P></O:P></FONT></SPAN></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><FONT 
+size=5><SPAN style="mso-bookmark: _Hlk198241045"><B><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>Аккумуляторная 
+модель:</SPAN></B></SPAN><SPAN style="mso-bookmark: _Hlk198241045"><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>&nbsp;Большинство 
+операций выполняются через регистр-аккумулятор 
+(ACCU1).<O:P></O:P></SPAN></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><FONT 
+size=5><SPAN style="mso-bookmark: _Hlk198241045"><B><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>Близость 
+к ассемблеру:</SPAN></B></SPAN><SPAN style="mso-bookmark: _Hlk198241045"><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'> 
+позволяет напрямую управлять памятью и 
+битами.<O:P></O:P></SPAN></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><SPAN 
+style='LINE-HEIGHT: 107%; mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>Компактность 
+кода:</SPAN></B></SPAN><SPAN style="mso-bookmark: _Hlk198241045"><SPAN 
+style='LINE-HEIGHT: 107%; mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>&nbsp;Одна 
+строка STL может заменить несколько сетей графических языков 
+(LAD/FBD).<O:P></O:P></SPAN></SPAN></FONT></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal" 
+align=center><FONT size=5><SPAN style="mso-bookmark: _Hlk198241045"><B>Сравнение 
+STL с другими языками </B></SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">Siemens</SPAN><O:P></O:P></B></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><FONT size=5>LAD (Ladder 
+Diagram):<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Графический язык, основанный на 
+релейной логике.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Плюсы:&nbsp;нагляден для 
+электриков.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Минусы:&nbsp;неэффективен для 
+сложных вычислений.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><FONT size=5>FBD (Function Block 
+Diagram)<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Графический язык (логические 
+блоки и связи)<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Плюсы:&nbsp;наглядность&nbsp;— 
+Логика представлена графически, что упрощает понимание, особенно для релейных 
+схем.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Минусы: ограниченная 
+гибкость&nbsp;— Сложнее реализовать сложные математические операции или 
+нестандартную логику.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><FONT 
+size=5><SPAN style="mso-bookmark: _Hlk198241045"><B><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">STL</SPAN></B></SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'> 
+(</SPAN></B></SPAN><SPAN style="mso-bookmark: _Hlk198241045"><B><SPAN lang=EN-US 
+style='mso-ansi-language: EN-US; mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>Structured</SPAN></B></SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><SPAN lang=EN-US 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'> 
+</SPAN></B></SPAN><SPAN style="mso-bookmark: _Hlk198241045"><B><SPAN lang=EN-US 
+style='mso-ansi-language: EN-US; mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>Text</SPAN></B></SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><SPAN lang=EN-US 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'> 
+</SPAN></B></SPAN><SPAN style="mso-bookmark: _Hlk198241045"><B><SPAN lang=EN-US 
+style='mso-ansi-language: EN-US; mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>Language</SPAN></B></SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><SPAN 
+style='mso-bidi-font-size: 14.0pt; mso-bidi-font-family: "Times New Roman"'>):</SPAN><O:P></O:P></B></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Плюсы:&nbsp;Прямой доступ к 
+памяти, высокая производительность.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt; LINE-HEIGHT: normal"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Минусы:&nbsp;Сложен для 
+новичков из-за низкоуровневого синтаксиса.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><SPAN style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Синтаксис 
+STL: основы<O:P></O:P></FONT></B></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><FONT size=5>Примеры базовых 
+команд:<O:P></O:P></FONT></B></SPAN></P>
+<TABLE class=MsoNormalTable 
+style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-cellspacing: 1.5pt" 
+cellPadding=0 border=1>
+  <THEAD>
+  <TR style="mso-yfti-irow: 0; mso-yfti-firstrow: yes">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><B><FONT 
+      size=5>Команда<O:P></O:P></FONT></B></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><B><FONT size=5><SPAN lang=EN-US 
+      style="mso-ansi-language: EN-US"><SPAN 
+      style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      </SPAN></SPAN>Описание<O:P></O:P></FONT></B></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR></THEAD>
+  <TBODY>
+  <TR style="mso-yfti-irow: 1">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT 
+      size=5>A<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT size=5>Логическое И 
+      (AND)<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR>
+  <TR style="mso-yfti-irow: 2">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT 
+      size=5>O<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT size=5>Логическое ИЛИ 
+      (OR)<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR>
+  <TR style="mso-yfti-irow: 3">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT 
+      size=5>X<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT size=5>Исключающее ИЛИ 
+      (XOR)<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR>
+  <TR style="mso-yfti-irow: 4">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT 
+      size=5>AN<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT size=5>Логическое НЕ-И (AND 
+      NOT)<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR>
+  <TR style="mso-yfti-irow: 5">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT 
+      size=5>ON<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT size=5>Логическое НЕ-ИЛИ (OR 
+      NOT)<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR>
+  <TR style="mso-yfti-irow: 6">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT 
+      size=5>=<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT size=5>Присвоение (установка 
+      значения)<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR>
+  <TR style="mso-yfti-irow: 7">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT 
+      size=5>L<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT size=5>Загрузить значение в 
+      аккумулятор<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR>
+  <TR style="mso-yfti-irow: 8; mso-yfti-lastrow: yes">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-top-alt: solid windowtext .5pt; mso-border-right-alt: solid windowtext .5pt; mso-border-bottom-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT 
+      size=5>T<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext; BORDER-BOTTOM: windowtext; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+      style="mso-bookmark: _Hlk198241045"><FONT size=5>Передать значение из 
+      аккумулятора<O:P></O:P></FONT></SPAN></P></TD><SPAN 
+    style="mso-bookmark: _Hlk198241045"></SPAN></TR></TBODY></TABLE>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-bookmark: _Hlk198241045"><B>Форматы адресов:</B></SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><B><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><O:P></O:P></SPAN></B></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Входы: I0.0, I1.2 
+(Input)<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Выходы: Q0.0, Q0.7 
+(Output)<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-bookmark: _Hlk198241045">Память</SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">: M0.0, MW10, MD100 (Memory 
+Bit/Word/DoubleWord)<O:P></O:P></SPAN></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><FONT size=5>Таймеры/Счётчики: T1, 
+C2<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><SPAN style="mso-no-proof: yes"><V:SHAPETYPE 
+id=_x0000_t75 coordsize="21600,21600" o:spt="75" o:preferrelative="t" 
+path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f"><V:STROKE 
+joinstyle="miter"></V:STROKE><V:FORMULAS><V:F 
+eqn="if lineDrawn pixelLineWidth 0"></V:F><V:F eqn="sum @0 1 0"></V:F><V:F 
+eqn="sum 0 0 @1"></V:F><V:F eqn="prod @2 1 2"></V:F><V:F 
+eqn="prod @3 21600 pixelWidth"></V:F><V:F 
+eqn="prod @3 21600 pixelHeight"></V:F><V:F eqn="sum @0 0 1"></V:F><V:F 
+eqn="prod @6 1 2"></V:F><V:F eqn="prod @7 21600 pixelWidth"></V:F><V:F 
+eqn="sum @8 21600 0"></V:F><V:F eqn="prod @7 21600 pixelHeight"></V:F><V:F 
+eqn="sum @10 21600 0"></V:F></V:FORMULAS><V:PATH o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></V:PATH><O:LOCK v:ext="edit" 
+aspectratio="t"></O:LOCK></V:SHAPETYPE></SPAN><O:P><IMG class=image 
+style="HEIGHT: 109px; WIDTH: 586px" alt=1-1.png 
+src="user-images/1-1.png" 
+width=623 height=111></O:P></SPAN></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt"><SPAN 
+style="mso-bookmark: _Hlk198241045">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;простейшая 
+программа на языке </SPAN><SPAN style="mso-bookmark: _Hlk198241045"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">STL</SPAN><O:P></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-bookmark: _Hlk198241045">В этой программе происходит проверка входа 
+</SPAN><SPAN style="mso-bookmark: _Hlk198241045"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">I</SPAN> 0.0 и входа </SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">I</SPAN> 0.1, и если значения этих входов равно 
+1, тогда программа передает значение 1 на выход </SPAN><SPAN 
+style="mso-bookmark: _Hlk198241045"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">Q</SPAN> 0.0. Соответственно загорается 
+индикатор.</SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-bookmark: _Hlk198241045"></SPAN></FONT>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-bookmark: _Hlk198241045"><O:P>Следующая лекция: <A 
+href="page2.html">Базовые 
+логические операции</A></O:P></SPAN></FONT></P>
+
+				</div>
+			</div>
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<ul>
+						<li><a style="" href="index.html">Главная</a></li>
+
+					</ul>
+				</li>
+				<li>
+					<h2>Содержание:</h2>
+					<ul>
+						<li class="active"><a style="" href="page1.html">Лекция 1: введение в ПЛК и язык STL</a></li>
+<li><a style="" href="page2.html">Лекция 2: базовые логические операции в STL</a></li>
+<li><a style="" href="page3.html">Лекция 3: аккумуляторы, регистры и переменные</a></li>
+<li><a style="" href="page4.html">Лекция 4: таймеры и работа с временем в STL (Step 7)</a></li>
+<li><a style="" href="page5.html">Лекция 5 : cчетчики</a></li>
+<li><a style="" href="page6.html">Лекция 6: условия, переходы, циклы</a></li>
+<li><a style="" href="page7.html">Лекция 7: организация программы и структура блоков</a></li>
+<li><a style="" href="page8.html">Лекция 8: отладка и тестирование STL-программ</a></li>
+<li><a style="" href="page9.html">Лабораторная работа 1: Основы STL. Управление входами и выходами</a></li>
+<li><a style="" href="page10.html">Лабораторная работа 2: Счетчики и таймеры в OB1</a></li>
+<li><a style="" href="page11.html">Лабораторная работа 3: Условия и циклы</a></li>
+<li><a style="" href="page12.html">Лабораторная работа 4: Обработка аварийных сигналов и приоритеты прерываний</a></li>
+<li><a style="" href="page13.html">Лабораторная работа 5: Отладка и диагностика</a></li>
+<li><a style="" href="page17.html">Тесты</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Автор: Вовенко Виталий Сергеевич | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

@@ -1,0 +1,216 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns:o = "urn:schemas-microsoft-com:office:office" xmlns:v = 
+"urn:schemas-microsoft-com:vml"><HEAD>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<P class=MsoTitle style="MARGIN: 0cm 0cm 4pt" align=center><B><FONT 
+size=5>Введение в организацию программ для ПЛК<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Программируемые 
+логические контроллеры (ПЛК) работают по принципу циклического исполнения, и для 
+обеспечения надёжности, масштабируемости и удобства поддержки разрабатываются 
+программы, разделённые на блоки. Организация программы подразумевает разделение 
+логики на несколько взаимосвязанных модулей, каждый из которых отвечает за 
+определённую функциональность.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Основные задачи организации 
+программы<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Модульность:</B> 
+Разделение программы на самостоятельные части (блоки), что облегчает поиск 
+ошибок и внесение изменений.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Переиспользуемость:</B> Возможность использования одних и тех же 
+функциональных блоков в разных частях программы.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Отладка и 
+документирование:</B> Чёткая структура программы позволяет проще отслеживать 
+ошибки и понимать логику работы кода.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Разделение 
+обязанностей:</B> Разделение логики управления процессом, коммуникации с 
+оборудованием и организационных задач.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Типы блоков в Step&nbsp;7<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В среде Step&nbsp;7 
+принято разделять код на следующие типы блоков:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Организационные 
+блоки (OB)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Область 
+применения:</B><BR>OB, как правило, содержат основную логику работы ПЛК 
+(например, основной цикл OB1).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Характеристики:</B><BR>– Программа запускается периодически в 
+цикле;<BR>– OB могут быть использованы для обработки аварийных ситуаций (OB2, 
+OB3 …);<BR>– Отладка OB проводится через мониторинг входов/выходов и системных 
+сигналов.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Пример 
+использования:</B><BR>Основной рабочий цикл, обработка системных событий, 
+аварийное завершение.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Функциональные блоки (FB)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Область 
+применения:</B><BR>FB используются для описания модульной логики, которая 
+требует сохранения состояния между вызовами.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Характеристики:</B><BR>– Хранят свое внутреннее состояние 
+(память);<BR>– Каждый вызов может работать с различными входными и выходными 
+параметрами;<BR>– Рекомендуется использовать FB для реализации повторяющихся 
+алгоритмов (например, регулирования температур, управления 
+моторами).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Преимущества:</B><BR>– Возможность создания экземпляров блока с 
+разными параметрами;<BR>– Удобство в повторном использовании 
+кода.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Функции (FC)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Область 
+применения:</B><BR>FC – статические процедуры, которые не хранят внутреннее 
+состояние.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Характеристики:</B><BR>– Применяются для вычислительных и логических 
+операций, где важна чистота процедуры (без сохранения данных);<BR>– FC 
+вызываются с параметрами и возвращают результат, аналогично функциям в языках 
+высокого уровня.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Пример 
+использования:</B><BR>– Арифметические расчеты, фильтрация сигнала, 
+преобразование данных.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Блоки данных (DB)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Область 
+применения:</B><BR>DB представляют собой область памяти для хранения глобальных 
+или локальных переменных, а также данных, используемых в FB и 
+FC.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Характеристики:</B><BR>– Позволяют централизованно хранить параметры, 
+которые могут изменяться в ходе работы;<BR>– Используются для обмена данными 
+между различными блоками программы.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Организационные блоки 
+(OB)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT 
+size=5>Назначение<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>OB</B>&nbsp;вызываются автоматически системой PLC в ответ на 
+события:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>OB1</B>: Главный 
+цикл программы (выполняется непрерывно).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>OB100</B>: 
+Инициализация при старте контроллера.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>OB35</B>: 
+Циклический вызов с фиксированным интервалом.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>OB82</B>: 
+Обработка аварийных событий.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Функциональные блоки (FB)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT 
+size=5>Особенности<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5>Имеют&nbsp;<B>Instance DB</B>&nbsp;— индивидуальный блок данных для 
+хранения состояния между вызовами.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Подходят для 
+реализации объектов с памятью: таймеры, счетчики, 
+регуляторы.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Функции (FC)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT 
+size=5>Особенности<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Не имеют собственной 
+памяти (Instance DB).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Используются для 
+повторяющихся операций: математические вычисления, преобразования 
+данных.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Блоки данных 
+(DB)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Типы DB<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Global DB</B>: 
+Общие данные для всей программы.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Instance DB</B>: 
+Привязаны к конкретному FB (хранят состояние функционального 
+блока).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Взаимодействие блоков<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-no-proof: yes"><v:shapetype id=_x0000_t75 coordsize="21600,21600" 
+o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" 
+stroked="f"><v:stroke joinstyle="miter"></v:stroke><v:formulas><v:f 
+eqn="if lineDrawn pixelLineWidth 0"></v:f><v:f eqn="sum @0 1 0"></v:f><v:f 
+eqn="sum 0 0 @1"></v:f><v:f eqn="prod @2 1 2"></v:f><v:f 
+eqn="prod @3 21600 pixelWidth"></v:f><v:f 
+eqn="prod @3 21600 pixelHeight"></v:f><v:f eqn="sum @0 0 1"></v:f><v:f 
+eqn="prod @6 1 2"></v:f><v:f eqn="prod @7 21600 pixelWidth"></v:f><v:f 
+eqn="sum @8 21600 0"></v:f><v:f eqn="prod @7 21600 pixelHeight"></v:f><v:f 
+eqn="sum @10 21600 0"></v:f></v:formulas><v:path o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></v:path><o:lock v:ext="edit" 
+aspectratio="t"></o:lock></v:shapetype><v:shape id=Рисунок_x0020_1 
+style="HEIGHT: 102.75pt; WIDTH: 378.75pt; VISIBILITY: visible; mso-wrap-style: square" 
+o:spid="_x0000_i1025" type="#_x0000_t75"><v:imagedata 
+src="file:///C:/Users/vital/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png" 
+o:title=""><IMG class=image style="HEIGHT: 137px; WIDTH: 448px" alt=7-1.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/7-1.png" 
+width=504 height=137></v:imagedata></v:shape></SPAN><o:p></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Иерархия вызовов<o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Передача 
+параметров<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Input/Output</B>: 
+Параметры передаются между блоками через входы и выходы.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Static/VAR</B>: 
+Внутренние переменные FB хранятся в Instance DB.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Temp</B>: 
+Временные переменные доступны только внутри блока.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Пример комплексной 
+программы<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Структура 
+проекта<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>OB1</B>: Главный 
+цикл.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>FB10</B>: 
+Управление двигателем.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>FC20</B>: Расчет 
+скорости.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">DB10</SPAN></B><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">: Instance DB </SPAN>для<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"> FB10.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>DB30</B>: 
+Глобальные параметры.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Принципы построения архитектуры 
+программы<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Модульное 
+программирование<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Определение:</B><BR>Разбиение программы на независимые или слабо 
+зависимые модули. Каждый модуль (FB, FC) отвечает за конкретное функциональное 
+задание.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Преимущества:</B><BR>– Легче тестировать отдельные части 
+программы;<BR>– Повышается читаемость и удобство сопровождения кода;<BR>– 
+Возможна переиспользуемость модулей в других проектах.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Использование глобальных и локальных 
+переменных<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Глобальные 
+переменные:</B><BR>– Хранятся в DB, доступны для различных блоков;<BR>– 
+Применяются для обмена данными между OB, FC и FB.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Локальные 
+переменные:</B><BR>– Объявляются внутри FB или FC;<BR>– Используются для 
+временного хранения данных, не влияющих на работу других 
+модулей.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Рекомендации:</B><BR>– Ограничивайте использование глобальных 
+переменных для предотвращения конфликтов;<BR>– Детально документируйте 
+назначение переменных.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Организация вызова блоков<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Вызов FB и 
+FC:</B><BR>– FB создают экземпляры, что позволяет работать с уникальными данными 
+для каждого вызова;<BR>– FC вызываются непосредственно, результат можно 
+присвоить в другой переменной.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Передача 
+параметров:</B><BR>– Различают входы, выходы и внутренние данные;<BR>– 
+Соблюдайте порядок и типы параметров для избежания ошибок компиляции.</FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5></FONT>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><o:p><FONT size=5>Следующая лекция: <A 
+href="C:\Users\vital\Desktop\проект\Siemens\public_html\page8.html">Отладка и 
+тестирование STL программ</A></FONT></o:p></SPAN></P></BODY></HTML>

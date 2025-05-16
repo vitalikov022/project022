@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="Очередной сайт, созданный при помощи TurboSite" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Лабораторная работа 2: Счетчики и таймеры в OB1 - Электронный учебник</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="index.html">Электронный учебник</a></h1>
+			<p>Вводный курс по языку STL siemens для ПЛК</p>
+		</div>
+	</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				<h2 class="title">Лабораторная работа 2: Счетчики и таймеры в OB1</h2>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+					
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Цель:</B> 
+научиться использовать счетчики и таймеры напрямую в главном цикле программы 
+(OB1) без создания FB.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Теоретическая 
+часть<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Счетчики в 
+STL:</B><O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>CU&nbsp;(Count Up) — 
+увеличивает значение на 1 по фронту сигнала.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>CD&nbsp;(Count Down) 
+— уменьшает значение на 1 по фронту сигнала.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>R&nbsp;(Reset) — 
+сбрасывает счетчик.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Таймеры в 
+STL:</B><O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">TON&nbsp;(Timer On-Delay) — 
+</SPAN>задержка<SPAN style="mso-ansi-language: EN-US"> </SPAN>включения<SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">.<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">TOF&nbsp;(Timer Off-Delay) — 
+</SPAN>задержка<SPAN style="mso-ansi-language: EN-US"> </SPAN>выключения<SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">.<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">TP&nbsp;(Pulse Timer) — </SPAN>генератор<SPAN 
+style="mso-ansi-language: EN-US"> </SPAN>импульсов<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">.<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT 
+size=5>Задание<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Счетчик 
+событий:</B><O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Реализуйте в OB1 
+счетчик, который увеличивает значение на 1 при каждом нажатии кнопки 
+(I0.0).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>При достижении 5 
+срабатываний включите выход Q0.0.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Сбросите счетчик по 
+сигналу I0.1.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Таймер 
+задержки:</B><O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>При активации входа 
+I0.2 включите выход Q0.1 с задержкой 3 секунды (используйте 
+TON).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Пример кода для 
+OB1<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>// Секция 1: Счетчик нажатий 
+кнопки<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">NETWORK 1:<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>A<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>I<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.0<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// </SPAN>Кнопка<SPAN lang=EN-US style="mso-ansi-language: EN-US"> 
+"</SPAN>Считать<SPAN lang=EN-US style="mso-ansi-language: EN-US">" 
+(I0.0)<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN>FP<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>M1.0<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Обнаружение фронта<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>JCN<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>No_Increment<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// 
+Пропустить, если фронта нет<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>L<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>#Counter_Value<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// Загрузить 
+текущее значение<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>L<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>1<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Прибавить 1<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>+I<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN><O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>T<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>#Counter_Value<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// Сохранить 
+новое значение<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><O:P><FONT 
+size=5></FONT></O:P></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">No_Increment:<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>L<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>#Counter_Value<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// 
+</SPAN>Проверка<SPAN style="mso-ansi-language: EN-US"> </SPAN>достижения<SPAN 
+lang=EN-US style="mso-ansi-language: EN-US"> 5<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN>L<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>5<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>&gt; 
+=I<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN><O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>=<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>Q<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.0<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Включить Q0.0 при достижении<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><O:P><FONT 
+size=5></FONT></O:P></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><SPAN lang=EN-US style="mso-ansi-language: EN-US">A<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>I<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.1<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// </SPAN>Кнопка<SPAN lang=EN-US style="mso-ansi-language: EN-US"> 
+"</SPAN>Сброс<SPAN lang=EN-US style="mso-ansi-language: EN-US">" 
+(I0.1)<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>JCN<SPAN style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN>No_Reset<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>L<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// </SPAN>Сброс<SPAN style="mso-ansi-language: EN-US"> 
+</SPAN>счетчика<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>T<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>#Counter_Value<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><O:P><FONT size=5></FONT></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>No_Reset: NOP 
+0<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><O:P><FONT size=5></FONT></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>// Секция 2: Таймер 
+задержки<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>NETWORK 
+2:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>A<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>I<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.2<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Вход "Активировать задержку" (I0.2)<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>L<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>S5T#3S<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Установка времени 3 секунды<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>SD<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>T1<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Запуск таймера TON (T1)<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>A<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>T1<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Проверить состояние таймера<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>=<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>Q<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.1<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Включить Q0.1 после задержки<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Порядок 
+выполнения<O:P></O:P></FONT></B></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo1; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>1.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Создайте новый проект в <SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">Simatic</SPAN><SPAN lang=EN-US> </SPAN><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">manager</SPAN>, добавьте 
+OB1.<O:P></O:P></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo1; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>2.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Вставьте приведенный код в 
+OB1.<O:P></O:P></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo1; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>3.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Настройте аппаратные 
+адреса:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>I0.0 — кнопка 
+"Счет".<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>I0.1 — кнопка 
+"Сброс".<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>I0.2 — кнопка 
+"Задержка".<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Q0.0 и Q0.1 — 
+светодиоды для индикации.<O:P></O:P></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo1; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>4.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Запустите симуляцию в 
+PLCSIM:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Нажимайте I0.0 и 
+наблюдайте за счетчиком (значение можно мониторить через таблицу 
+переменных).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Проверьте сброс 
+счетчика через I0.1.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Активируйте I0.2 и 
+убедитесь, что Q0.1 включается с задержкой.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Контрольные 
+вопросы<O:P></O:P></FONT></B></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>1.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Почему важно использовать 
+оператор&nbsp;FP&nbsp;для счетчика?<O:P></O:P></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>2.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Как изменить время задержки таймера 
+TON?<O:P></O:P></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>3.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Какие ограничения есть у временных переменных 
+(VAR_TEMP) в OB1?<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Дополнительное 
+задание<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Реализуйте обратный 
+отсчет:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Добавьте кнопку 
+I0.3, которая уменьшает счетчик на 1 
+(используйте&nbsp;CD).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>При достижении 0 
+включите выход Q0.2.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Пример 
+модификации кода:</B><O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>NETWORK 
+3:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">A</SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">I</SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.3<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Кнопка "Уменьшить" (<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">I</SPAN>0.3)<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">FP<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>M1.1<O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>JCN<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp; 
+</SPAN>No_Decrement<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>L<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>#Counter_Value<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>L<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>1<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>-I<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN><O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>T<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>#Counter_Value<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><O:P><FONT size=5></FONT></O:P></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT 
+size=5>No_Decrement:<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>L<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>#Counter_Value<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>L<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>0<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>&lt;=I<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN><O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>=<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>Q<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>0.2</FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5></FONT></SPAN>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">Следующая лабараторная работа: &nbsp;<A 
+href="page11.html">Условия и 
+циклы<O:P></O:P></A></SPAN></P>
+
+				</div>
+			</div>
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<ul>
+						<li><a style="" href="index.html">Главная</a></li>
+
+					</ul>
+				</li>
+				<li>
+					<h2>Содержание:</h2>
+					<ul>
+						<li><a style="" href="page1.html">Лекция 1: введение в ПЛК и язык STL</a></li>
+<li><a style="" href="page2.html">Лекция 2: базовые логические операции в STL</a></li>
+<li><a style="" href="page3.html">Лекция 3: аккумуляторы, регистры и переменные</a></li>
+<li><a style="" href="page4.html">Лекция 4: таймеры и работа с временем в STL (Step 7)</a></li>
+<li><a style="" href="page5.html">Лекция 5 : cчетчики</a></li>
+<li><a style="" href="page6.html">Лекция 6: условия, переходы, циклы</a></li>
+<li><a style="" href="page7.html">Лекция 7: организация программы и структура блоков</a></li>
+<li><a style="" href="page8.html">Лекция 8: отладка и тестирование STL-программ</a></li>
+<li><a style="" href="page9.html">Лабораторная работа 1: Основы STL. Управление входами и выходами</a></li>
+<li class="active"><a style="" href="page10.html">Лабораторная работа 2: Счетчики и таймеры в OB1</a></li>
+<li><a style="" href="page11.html">Лабораторная работа 3: Условия и циклы</a></li>
+<li><a style="" href="page12.html">Лабораторная работа 4: Обработка аварийных сигналов и приоритеты прерываний</a></li>
+<li><a style="" href="page13.html">Лабораторная работа 5: Отладка и диагностика</a></li>
+<li><a style="" href="page17.html">Тесты</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Автор: Вовенко Виталий Сергеевич | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

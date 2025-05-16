@@ -1,0 +1,141 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns:o = "urn:schemas-microsoft-com:office:office" xmlns:v = 
+"urn:schemas-microsoft-com:vml"><HEAD>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<P class=MsoTitle style="MARGIN: 0cm 0cm 4pt" align=center><B><FONT 
+size=5>Теоретическое введение<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Условия в STL<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В отличие от 
+высокоуровневых языков, в STL нет конструкций типа «if … then … else». Вместо 
+этого используется принцип последовательного вычисления инструкций, где значения 
+передаются через логический стек. Логические условия задаются посредством 
+комбинации команд (например, A, O, AN, ON) и проверок состояния флагов или 
+переменных.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Преимущества такого 
+подхода:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Возможность тонкой 
+оптимизации логики.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Полный контроль 
+последовательности выполнения команд.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Более компактное 
+представление сложных условий.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Переходы (Branching)<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В STL используются 
+условные и безусловные переходы для изменения последовательности выполнения 
+программы. Основные команды:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>JU</B> (Jump 
+Unconditionally) — безусловный переход.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>JC</B> (Jump 
+Conditional) — переход при выполнении определенного 
+условия.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>JCN</B> (Jump 
+Conditional on Not) — переход, если условие не выполнено.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Эти команды 
+используются для реализации ветвлений, позволяющих перескочить через блоки кода 
+или повторить часть алгоритма.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Циклы<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Хотя в STL нет явной 
+конструкции цикла (как, например, в языках высокого уровня), циклические 
+структуры можно реализовать с помощью комбинации переходов. Используя условные 
+переходы и безусловные скачки, можно повторять выполнение определённых блоков 
+кода до наступления заданного условия.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Типичные 
+применения:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Повторение операций 
+(например, подсчет импульсов).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Ожидание события с 
+периодической проверкой.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Реализация 
+алгоритмов с повторными итерациями по схеме "пока истинно 
+…".<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Синтаксис и примеры 
+команд<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Команды для 
+переходов<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>JU</B><BR>Пример:<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US; mso-no-proof: yes"><v:shapetype 
+id=_x0000_t75 coordsize="21600,21600" o:spt="75" o:preferrelative="t" 
+path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f"><v:stroke 
+joinstyle="miter"></v:stroke><v:formulas><v:f 
+eqn="if lineDrawn pixelLineWidth 0"></v:f><v:f eqn="sum @0 1 0"></v:f><v:f 
+eqn="sum 0 0 @1"></v:f><v:f eqn="prod @2 1 2"></v:f><v:f 
+eqn="prod @3 21600 pixelWidth"></v:f><v:f 
+eqn="prod @3 21600 pixelHeight"></v:f><v:f eqn="sum @0 0 1"></v:f><v:f 
+eqn="prod @6 1 2"></v:f><v:f eqn="prod @7 21600 pixelWidth"></v:f><v:f 
+eqn="sum @8 21600 0"></v:f><v:f eqn="prod @7 21600 pixelHeight"></v:f><v:f 
+eqn="sum @10 21600 0"></v:f></v:formulas><v:path o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></v:path><o:lock v:ext="edit" 
+aspectratio="t"></o:lock></v:shapetype></SPAN><o:p><IMG class=image 
+style="HEIGHT: 87px; WIDTH: 590px" alt=6-1.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/6-1.png" 
+width=623 height=87></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Команда <SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">JU</SPAN><o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Пояснение<I> 
+</I>используется для немедленного перехода к заданной точке в 
+коде.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>JC</B><BR>Пример:<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US; mso-no-proof: yes"></SPAN><o:p><IMG 
+class=image style="HEIGHT: 86px; WIDTH: 583px" alt=6-2.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/6-2.png" 
+width=622 height=86></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Команда <SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">JC</SPAN><o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Пояснение: если 
+условие, сформированное ранее (например, через A I0.0), истинно, выполнение 
+продолжается с указанной метки.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>JCN</B><BR>Пример:<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US; mso-no-proof: yes"></SPAN><o:p><IMG 
+class=image style="HEIGHT: 82px; WIDTH: 569px" alt=6-3.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/6-3.png" 
+width=623 height=82></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Команда <SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">JCN</SPAN><o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Пояснение: если 
+условие не выполнено, происходит переход.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Организация цикла с помощью 
+переходов<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Для эмуляции цикла 
+часто используют комбинацию условного перехода и безусловного перехода. Пример 
+простейшего цикла:<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US; mso-no-proof: yes"></SPAN><o:p><IMG 
+class=image style="HEIGHT: 217px; WIDTH: 583px" alt=6-4.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/6-4.png" 
+width=623 height=217></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Пример цикла<o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><I>Пояснение:</I><o:p></o:p></FONT></P>
+<UL style="MARGIN-TOP: 0cm" type=disc>
+  <LI class=MsoNormal 
+  style="MARGIN: 0cm 0cm 8pt; mso-list: l0 level1 lfo1; tab-stops: list 36.0pt"><FONT 
+  size=5>Если условие (например, нажатие кнопки I0.0) истинно, управление 
+  переходит к началу цикла, выполняется блок логики и затем снова начинается 
+  цикл.<o:p></o:p></FONT></LI></UL>
+<P><SPAN 
+style='FONT-SIZE: 14pt; FONT-FAMILY: "Times New Roman",serif; LINE-HEIGHT: 107%; mso-ansi-language: RU; mso-bidi-font-size: 11.0pt; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: EN-US; mso-bidi-language: AR-SA'>Если 
+условие становится ложным, происходит переход на метку end, и цикл 
+завершается.</SPAN> </P>
+<P>&nbsp;</P>
+<P><SPAN style="mso-bookmark: _Hlk198241045"><o:p><FONT size=5>Следующая лекция: 
+<SPAN 
+style='FONT-SIZE: 14pt; FONT-FAMILY: "Times New Roman",serif; LINE-HEIGHT: 107%; mso-ansi-language: RU; mso-bidi-font-size: 11.0pt; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: EN-US; mso-bidi-language: AR-SA'><A 
+href="C:\Users\vital\Desktop\проект\Siemens\public_html\page7.html">Организация 
+программы и структура блоков</A></SPAN></FONT></o:p></SPAN></P></BODY></HTML>

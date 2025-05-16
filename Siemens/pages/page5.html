@@ -1,0 +1,146 @@
+﻿<HTML><BODY><P class=MsoTitle style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 4pt" 
+align=center><B><FONT size=5>Теоретическое введение в 
+счетчики<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Что такое 
+счетчик?<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Счетчик</B> – это 
+функциональный элемент, используемый для накопления количества событий или 
+переходов. Счетчик может увеличивать (и/или уменьшать) свое значение при каждом 
+поступлении определенного сигнала. В ПЛК счетчики применяются 
+для:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Подсчета импульсов 
+от кнопок или датчиков.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Ограничения 
+количества запусков или повторений операций.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Организации логики, 
+зависящей от количества событий (например, контроль цикла 
+дозапуска).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Типы счетчиков в STL<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В STL используются 
+следующие базовые команды для работы со счетчиками:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>CU (Count Up)</B> 
+– увеличивает значение счетчика на 1, если входной импульс поступил (срабатывает 
+при переходе с 0 на 1).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>CD (Count 
+Down)</B> – уменьшает значение счетчика на 1.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>CT (Compare)</B> 
+– сравнивает текущее значение счетчика с заданным пределом (этот тип часто 
+реализуется в виде параметров в функциональных блоках, хотя в чистом STL такой 
+операции может и не быть).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>R (Reset)</B> – 
+сброс счетчика, обнуляет накопленное значение.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>CUD</B> – 
+комбинация счетчика, где доступны команды CU и CD, позволяющие подсчет вверх и 
+вниз в одном блоке (в некоторых версиях Step 7).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Примечание:</B> В 
+STL счетчики обычно представлены как специальные объекты, например, C1, C2 и 
+т.п., с накопленными значениями, которые можно отображать в таблице наблюдения 
+для отладки.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Структура счетчика<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Каждый счетчик 
+имеет:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Текущее значение 
+(CV)</B>: Число, которое изменяется при срабатывании.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Уставка (PV)</B>: 
+Максимальное/минимальное значение, при достижении которого счетчик может 
+генерировать сигнал.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Биты 
+состояния</B>:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Q</B>&nbsp;(выход): активируется, когда CV&gt; = PV (для CU) или CV 
+&lt;= 0 (для CD).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>R</B>&nbsp;(сброс): обнуляет счетчик.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><O:P><FONT 
+size=5></FONT></O:P></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Синтаксис и команды 
+счетчиков<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+size=5><B>Команды</B><B><SPAN lang=EN-US style="mso-ansi-language: EN-US"> CU 
+</SPAN>и</B><B><SPAN lang=EN-US style="mso-ansi-language: EN-US"> 
+CD<O:P></O:P></SPAN></B></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">CU (Increment Count Up)</SPAN></B><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US"><O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>При появлении 
+положительного фронта входного сигнала команда CU увеличивает значение счетчика 
+на 1.<BR><I>Пример:<O:P></O:P></I></FONT></P><SPAN 
+style="mso-no-proof: yes"><V:SHAPETYPE id=_x0000_t75 coordsize="21600,21600" 
+o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" 
+stroked="f"><V:STROKE joinstyle="miter"></V:STROKE><V:FORMULAS><V:F 
+eqn="if lineDrawn pixelLineWidth 0"></V:F><V:F eqn="sum @0 1 0"></V:F><V:F 
+eqn="sum 0 0 @1"></V:F><V:F eqn="prod @2 1 2"></V:F><V:F 
+eqn="prod @3 21600 pixelWidth"></V:F><V:F 
+eqn="prod @3 21600 pixelHeight"></V:F><V:F eqn="sum @0 0 1"></V:F><V:F 
+eqn="prod @6 1 2"></V:F><V:F eqn="prod @7 21600 pixelWidth"></V:F><V:F 
+eqn="sum @8 21600 0"></V:F><V:F eqn="prod @7 21600 pixelHeight"></V:F><V:F 
+eqn="sum @10 21600 0"></V:F></V:FORMULAS><V:PATH o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></V:PATH><O:LOCK v:ext="edit" 
+aspectratio="t"></O:LOCK></V:SHAPETYPE></SPAN>
+<P class=MsoNormal 
+style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><O:P><IMG class=image 
+style="HEIGHT: 98px; WIDTH: 569px" alt=5-1.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/5-1.png" 
+width=623 height=98></O:P></P>
+<P class=MsoNormal 
+style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt">Команда<SPAN 
+style="mso-ansi-language: EN-US"> <SPAN 
+lang=EN-US>CU<O:P></O:P></SPAN></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">CD (Decrement Count Down)</SPAN></B><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US"><O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>При появлении 
+положительного фронта входного сигнала команда CD уменьшает значение счетчика на 
+1.<BR><I>Пример:</I><O:P></O:P></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-no-proof: yes"><V:SHAPE id=_x0000_i1026 
+style="HEIGHT: 68.25pt; WIDTH: 468pt; VISIBILITY: visible; mso-wrap-style: square" 
+type="#_x0000_t75"><V:IMAGEDATA 
+src="file:///C:/Users/vital/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" 
+o:title=""><IMG class=image style="HEIGHT: 91px; WIDTH: 562px" alt=5-2.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/5-2.png" 
+width=623 height=91></V:IMAGEDATA></V:SHAPE></SPAN><O:P></O:P></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Команда <SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">CD</SPAN><O:P></O:P></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Команда R 
+(Reset)<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Команда сбрасывает 
+накопленное значение счетчика в 0. Это полезно при необходимости начать подсчет 
+заново.<BR><I>Пример:</I><O:P></O:P></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-no-proof: yes"><V:SHAPE id=Рисунок_x0020_1 
+style="HEIGHT: 71.25pt; WIDTH: 468pt; VISIBILITY: visible; mso-wrap-style: square" 
+o:spid="_x0000_i1025" type="#_x0000_t75"><V:IMAGEDATA 
+src="file:///C:/Users/vital/AppData/Local/Temp/msohtmlclip1/01/clip_image003.png" 
+o:title=""><IMG class=image style="HEIGHT: 95px; WIDTH: 559px" alt=5-3.png 
+src="file:///C:/Users/vital/Desktop/проект/Siemens/public_html/user-images/5-3.png" 
+width=623 height=95></V:IMAGEDATA></V:SHAPE></SPAN><O:P></O:P></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Команда <SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">Reset</SPAN><O:P></O:P></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Последовательность выполнения и 
+особенности<O:P></O:P></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Счетчики в STL 
+работают, как правило, в рамках циклического сканирования программы (OB1). Важно 
+помнить:<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Счетчик срабатывает 
+только на переходе входного сигнала с 0 в 1.<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Если вход 
+удерживается, повторное срабатывание не происходит до восстановления логики 
+(снятие сигнала с 1 обратно в 0).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Обычно значения 
+счетчиков можно использовать для формирования условий (например, если счетчик 
+достиг значения N, выполнить определенное действие).<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Счетчики в STL — 
+мощный инструмент для автоматизации процессов. Правильное использование CU/CD, 
+сброс и обработка фронтов гарантируют точность и надежность алгоритмов. Всегда 
+тестируйте логику в симуляторе перед внедрением!</FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5></FONT>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><O:P><FONT size=5>Следующая лекция: <A 
+href="C:\Users\vital\Desktop\проект\Siemens\public_html\page6.html">Условия, 
+переходы, циклы</A></FONT></O:P></SPAN></P>
+</BODY></HTML>

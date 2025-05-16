@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="Очередной сайт, созданный при помощи TurboSite" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Лекция 2: базовые логические операции в STL - Электронный учебник</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="index.html">Электронный учебник</a></h1>
+			<p>Вводный курс по языку STL siemens для ПЛК</p>
+		</div>
+	</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				<h2 class="title">Лекция 2: базовые логические операции в STL</h2>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+					
+<P class=MsoTitle style="MARGIN: 0cm 0cm 4pt"><FONT size=5>Логические операции 
+являются основой работы любой цифровой системы и в ПЛК выполняют роль «мозга». В 
+языке STL каждая операция выражается соответствующей командой, которая 
+применяется к входным сигналам, промежуточным результатам или 
+переменным.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Основные понятия:<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Логический 
+уровень</B> – двоичная величина (0 или 1).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Аккумулятор и 
+стек</B> – используются для хранения промежуточных логических 
+состояний.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Операторы</B> – 
+символы, управляющие логической обработкой данных.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Почему важны логические 
+операции?<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Логические операции 
+позволяют:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Обрабатывать сигналы 
+от датчиков и кнопок;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Формировать условия 
+для включения/выключения исполнительных устройств;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Реализовывать 
+алгоритмы контроля безопасности, диагностики и оптимизации 
+процессов.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Основные логические команды 
+STL<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В STL используются 
+следующие основные команды для выполнения логических 
+операций:<o:p></o:p></FONT></P>
+<TABLE class=MsoNormalTable 
+style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; BORDER-LEFT: windowtext 1pt solid; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 1184; mso-cellspacing: 1.5pt; mso-border-insideh: .5pt solid windowtext; mso-border-insidev: .5pt solid windowtext" 
+cellPadding=0 border=1>
+  <THEAD>
+  <TR style="mso-yfti-irow: 0; mso-yfti-firstrow: yes">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT 
+      size=5>Команда<o:p></o:p></FONT></B></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT 
+      size=5>Назначение<o:p></o:p></FONT></B></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><B><FONT size=5>Пример 
+      использования<o:p></o:p></FONT></B></P></TD></TR></THEAD>
+  <TBODY>
+  <TR style="mso-yfti-irow: 1">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+      size=5><B>A</B><o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Логическое И 
+      (AND)<o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>A I0.0 – 
+      значение 1, если I0.0=1<o:p></o:p></FONT></P></TD></TR>
+  <TR style="mso-yfti-irow: 2">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+      size=5><B>O</B><o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Логическое ИЛИ 
+      (OR)<o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>O I0.1 – 
+      значение 1, если I0.1=1<o:p></o:p></FONT></P></TD></TR>
+  <TR style="mso-yfti-irow: 3">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+      size=5><B>X</B><o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Исключающее 
+      ИЛИ (XOR)<o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>X I0.2 – 1, 
+      если только один из сигналов =1<o:p></o:p></FONT></P></TD></TR>
+  <TR style="mso-yfti-irow: 4">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+      size=5><B>AN</B><o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Логическое И с 
+      инверсией (AND NOT)<o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>AN I0.3 – 1, 
+      если I0.3=0, при условии предшествующей логики<o:p></o:p></FONT></P></TD></TR>
+  <TR style="mso-yfti-irow: 5; mso-yfti-lastrow: yes">
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT 
+      size=5><B>ON</B><o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Логическое ИЛИ 
+      с инверсией (OR NOT)<o:p></o:p></FONT></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0.75pt; PADDING-TOP: 0.75pt; PADDING-LEFT: 0.75pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 0.75pt; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt">
+      <P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>ON I0.4 – 1, 
+      если I0.4=0 или другая логика 
+  выполняется<o:p></o:p></FONT></P></TD></TR></TBODY></TABLE>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Эти команды 
+применяются для создания цепочек логических операций. Благодаря им можно 
+преобразовывать сигналы в нужные логические условия.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: center; MARGIN: 0cm 0cm 8pt" 
+align=center><B><FONT size=5>Работа логического стека и 
+аккумулятора<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В STL все логические 
+операции работают с аккумулятором, который вмещает промежуточное значение 
+вычислений. Принцип работы можно описать следующим 
+образом:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>Команда загрузки 
+(L)</B> читает значение (например, вход I0.0) и сохраняет его в 
+аккумулятор.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Последующие команды 
+(например, A, O, X) комбинируют это значение с новым, также загруженным или 
+находящимся в аккумуляторе.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Команда присваивания 
+(=) записывает итоговое значение в выход или переменную.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US; mso-no-proof: yes"><v:shapetype 
+id=_x0000_t75 coordsize="21600,21600" o:spt="75" o:preferrelative="t" 
+path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f"><v:stroke 
+joinstyle="miter"></v:stroke><v:formulas><v:f 
+eqn="if lineDrawn pixelLineWidth 0"></v:f><v:f eqn="sum @0 1 0"></v:f><v:f 
+eqn="sum 0 0 @1"></v:f><v:f eqn="prod @2 1 2"></v:f><v:f 
+eqn="prod @3 21600 pixelWidth"></v:f><v:f 
+eqn="prod @3 21600 pixelHeight"></v:f><v:f eqn="sum @0 0 1"></v:f><v:f 
+eqn="prod @6 1 2"></v:f><v:f eqn="prod @7 21600 pixelWidth"></v:f><v:f 
+eqn="sum @8 21600 0"></v:f><v:f eqn="prod @7 21600 pixelHeight"></v:f><v:f 
+eqn="sum @10 21600 0"></v:f></v:formulas><v:path o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></v:path><o:lock v:ext="edit" 
+aspectratio="t"></o:lock></v:shapetype></SPAN><o:p><IMG class=image 
+style="HEIGHT: 81px; WIDTH: 572px" alt=2-1.png 
+src="user-images/2-1.png" 
+width=623 height=81></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Логика <SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">OR</SPAN><o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Задача этой 
+программы включить индикатор Q0.1, если активен хотя бы один из входов I0.2 или 
+I0.3.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Если<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">: I0.0 = 1, I0.1 = 0 → Q0.0 = 
+1<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5>I0.0 = 0, I0.1 = 0 → Q0.0 = 
+0<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5>I0.0 = 1, I0.1 = 1 → Q0.0 = 
+1<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><o:p><FONT 
+size=5>&nbsp;</FONT></o:p></SPAN></P>
+<P class=MsoNormal style="PAGE-BREAK-AFTER: avoid; MARGIN: 0cm 0cm 8pt"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US; mso-no-proof: yes"></SPAN><o:p><IMG 
+class=image style="HEIGHT: 105px; WIDTH: 589px" alt=2-2.png 
+src="user-images/2-2.png" 
+width=622 height=105></o:p></P>
+<P class=MsoCaption style="MARGIN: 0cm 0cm 10pt">Исключающее ИЛИ (<SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">XOR</SPAN>)<o:p></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Задача этой 
+программы включить индикатор Q0.2, если активен только один из входов I0.4 или 
+I0.5.</FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5></FONT>&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><SPAN 
+style="mso-bookmark: _Hlk198241045"><o:p><FONT size=5>Следующая лекция: <SPAN 
+style='FONT-SIZE: 14pt; FONT-FAMILY: "Times New Roman",serif; LINE-HEIGHT: 107%; mso-ansi-language: RU; mso-bidi-font-size: 11.0pt; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-bidi-theme-font: minor-bidi; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-bidi-font-weight: bold'><A 
+href="page3.html">Аккумуляторы, 
+регистры и 
+переменные</A></SPAN></FONT></o:p></SPAN><o:p></o:p></P>
+
+				</div>
+			</div>
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<ul>
+						<li><a style="" href="index.html">Главная</a></li>
+
+					</ul>
+				</li>
+				<li>
+					<h2>Содержание:</h2>
+					<ul>
+						<li><a style="" href="page1.html">Лекция 1: введение в ПЛК и язык STL</a></li>
+<li class="active"><a style="" href="page2.html">Лекция 2: базовые логические операции в STL</a></li>
+<li><a style="" href="page3.html">Лекция 3: аккумуляторы, регистры и переменные</a></li>
+<li><a style="" href="page4.html">Лекция 4: таймеры и работа с временем в STL (Step 7)</a></li>
+<li><a style="" href="page5.html">Лекция 5 : cчетчики</a></li>
+<li><a style="" href="page6.html">Лекция 6: условия, переходы, циклы</a></li>
+<li><a style="" href="page7.html">Лекция 7: организация программы и структура блоков</a></li>
+<li><a style="" href="page8.html">Лекция 8: отладка и тестирование STL-программ</a></li>
+<li><a style="" href="page9.html">Лабораторная работа 1: Основы STL. Управление входами и выходами</a></li>
+<li><a style="" href="page10.html">Лабораторная работа 2: Счетчики и таймеры в OB1</a></li>
+<li><a style="" href="page11.html">Лабораторная работа 3: Условия и циклы</a></li>
+<li><a style="" href="page12.html">Лабораторная работа 4: Обработка аварийных сигналов и приоритеты прерываний</a></li>
+<li><a style="" href="page13.html">Лабораторная работа 5: Отладка и диагностика</a></li>
+<li><a style="" href="page17.html">Тесты</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Автор: Вовенко Виталий Сергеевич | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>

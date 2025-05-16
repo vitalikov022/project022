@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="Очередной сайт, созданный при помощи TurboSite" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Лабораторная работа 4: Обработка аварийных сигналов и приоритеты прерываний - Электронный учебник</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+<meta name="generator" content="TurboSite 1.7.1" />
+
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="index.html">Электронный учебник</a></h1>
+			<p>Вводный курс по языку STL siemens для ПЛК</p>
+		</div>
+	</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				<h2 class="title">Лабораторная работа 4: Обработка аварийных сигналов и приоритеты прерываний</h2>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+					
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><B>Цель:</B> 
+изучить обработку аварийных событий через аварийные OB (например, OB82) и 
+приоритетное выполнение программ.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><B><FONT 
+size=5>Теоретическая часть<o:p></o:p></FONT></B></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l3 level1 lfo1; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>1.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5><B>Аварийные 
+OB-блоки:</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>OB82</B>&nbsp;— 
+обработка диагностических событий модулей (например, обрыв 
+датчика).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>OB80</B>&nbsp;— 
+контроль времени цикла.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5><B>OB35</B>&nbsp;— 
+циклические прерывания (например, каждые 100 мс).<o:p></o:p></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l3 level1 lfo1; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>2.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5><B>Приоритеты 
+выполнения:</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Аварийные OB имеют 
+более высокий приоритет, чем OB1.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Прерывание OB1 при 
+возникновении события.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><o:p><FONT 
+size=5>&nbsp;</FONT></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><B><FONT 
+size=5>Задание<o:p></o:p></FONT></B></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>1.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5><B>Настройка аварийного 
+OB:</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Создайте OB82 для 
+обработки ошибки модуля ввода/вывода.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>При срабатывании 
+OB82 должен:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Записать код ошибки 
+в DB1.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Активировать 
+аварийный выход Q0.7.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Отправить сообщение 
+на HMI (эмулировать через DB).<o:p></o:p></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>2.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5><B>Имитация аварии:</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>В OB1 добавьте 
+искусственную ошибку (например, деление на ноль при нажатии кнопки 
+I0.3).<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Проверьте, что OB82 
+корректно обрабатывает прерывание.<o:p></o:p></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>3.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5><B>Приоритеты:</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Добавьте OB35 с 
+циклом 500 мс для мигания диагностическим светодиодом 
+Q0.6.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Убедитесь, что OB35 
+не блокируется OB1.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><B><FONT size=5>Пример 
+кода<o:p></o:p></FONT></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><B>OB1 
+(Искусственная ошибка):</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">NETWORK</SPAN> 
+1:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">A</SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">I</SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.3<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Кнопка "Генерация ошибки"<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">JC<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>GENERATE_ERROR<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>JU<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>END<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><o:p><FONT 
+size=5>&nbsp;</FONT></o:p></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><FONT 
+size=5>GENERATE_ERROR:<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>L</SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Деление на ноль<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>L<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>0<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>/I<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>T<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>MW100<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Здесь возникнет ошибка<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><o:p><FONT 
+size=5>&nbsp;</FONT></o:p></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5>END: NOP 
+0<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><B>OB82 
+(Обработка аварии):</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">NETWORK</SPAN> 
+1:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">L</SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">OB</SPAN>82_<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">EV</SPAN>_<SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">CLASS</SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// Класс 
+события<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>T<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>DB1.DBW0<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Сохранить в DB1<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>S<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>Q<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.7<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Аварийный выход<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>L<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>16#55AA<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Код диагностики<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>T<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DB1.DBW2<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><B>OB35 
+(Диагностический сигнал):</B><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5>NETWORK 
+1:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>L<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>DB1.DBX10.0<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Флаг состояния<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>INV<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>T<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DB1.DBX10.0<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><FONT size=5><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>=<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>Q<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0.6<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// Мигающий светодиод<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><B><FONT size=5>Порядок 
+выполнения<o:p></o:p></FONT></B></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>1.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Создайте проект в <SPAN lang=EN-US 
+style="mso-ansi-language: EN-US">Simatic</SPAN><SPAN lang=EN-US> </SPAN><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">manager</SPAN>, добавьте OB1, OB35 и 
+OB82.<o:p></o:p></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>2.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Настройте DB1 для хранения 
+данных:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>DB1.DBW0 — код 
+ошибки.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>DB1.DBW2 — 
+дополнительный статус.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>DB1.DBX10.0 — флаг 
+для мигания.<o:p></o:p></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>3.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Запустите симуляцию:<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Активируйте I0.3 для 
+генерации ошибки — проверьте реакцию OB82.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt"><FONT size=5>Убедитесь, что OB35 
+продолжает работать независимо от ошибки.<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 8pt 36pt"><B><FONT size=5>Контрольные 
+вопросы<o:p></o:p></FONT></B></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l2 level1 lfo4; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>1.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Какой OB имеет наивысший 
+приоритет?<o:p></o:p></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l2 level1 lfo4; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>2.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Почему деление на ноль вызывает 
+прерывание?<o:p></o:p></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l2 level1 lfo4; tab-stops: list 36.0pt"><SPAN 
+style='mso-bidi-font-family: "Times New Roman"; mso-fareast-font-family: "Times New Roman"'><SPAN 
+style="mso-list: Ignore"><FONT size=5>3.</FONT><SPAN 
+style='FONT: 7pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><FONT size=5>Как передать параметры между OB1 и 
+OB82?</FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l2 level1 lfo4; tab-stops: list 36.0pt"><FONT 
+size=5></FONT>&nbsp;</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 8pt 36pt; TEXT-INDENT: -18pt; mso-list: l2 level1 lfo4; tab-stops: list 36.0pt"><SPAN 
+lang=EN-US style="mso-ansi-language: EN-US">Следующая лабараторная работа:&nbsp; 
+<A href="page13.html">Отладка 
+и диагностика</A></SPAN><o:p></o:p></P>
+
+				</div>
+			</div>
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<ul>
+						<li><a style="" href="index.html">Главная</a></li>
+
+					</ul>
+				</li>
+				<li>
+					<h2>Содержание:</h2>
+					<ul>
+						<li><a style="" href="page1.html">Лекция 1: введение в ПЛК и язык STL</a></li>
+<li><a style="" href="page2.html">Лекция 2: базовые логические операции в STL</a></li>
+<li><a style="" href="page3.html">Лекция 3: аккумуляторы, регистры и переменные</a></li>
+<li><a style="" href="page4.html">Лекция 4: таймеры и работа с временем в STL (Step 7)</a></li>
+<li><a style="" href="page5.html">Лекция 5 : cчетчики</a></li>
+<li><a style="" href="page6.html">Лекция 6: условия, переходы, циклы</a></li>
+<li><a style="" href="page7.html">Лекция 7: организация программы и структура блоков</a></li>
+<li><a style="" href="page8.html">Лекция 8: отладка и тестирование STL-программ</a></li>
+<li><a style="" href="page9.html">Лабораторная работа 1: Основы STL. Управление входами и выходами</a></li>
+<li><a style="" href="page10.html">Лабораторная работа 2: Счетчики и таймеры в OB1</a></li>
+<li><a style="" href="page11.html">Лабораторная работа 3: Условия и циклы</a></li>
+<li class="active"><a style="" href="page12.html">Лабораторная работа 4: Обработка аварийных сигналов и приоритеты прерываний</a></li>
+<li><a style="" href="page13.html">Лабораторная работа 5: Отладка и диагностика</a></li>
+<li><a style="" href="page17.html">Тесты</a></li>
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Автор: Вовенко Виталий Сергеевич | <a href="http://www.freecsstemplates.org/">Free CSS Templates</a> | <a href="http://brullworfel.ru/turbosite">TurboSite</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>
